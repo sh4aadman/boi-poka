@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import PrimaryButton from "../UI/Button/PrimaryButton";
 import HeaderLink from "../UI/Link/HeaderLink";
 import Title from "../UI/Title/Title";
@@ -8,9 +9,15 @@ function NavBar() {
       <Title text={"Book Vibe"} />
       <section>
         <ul className="flex items-center gap-4">
-          <HeaderLink text={"Home"} />
-          <HeaderLink text={"Listed Books"} />
-          <HeaderLink text={"Pages to Read"} />
+          <Link to={"/"}>
+            <HeaderLink text={"Home"} />
+          </Link>
+          <Link to={"/books"}>
+            <HeaderLink text={"Listed Books"} />
+          </Link>
+          <Link to={"/pages-to-read"}>
+            <HeaderLink text={"Pages to Read"} />
+          </Link>
         </ul>
       </section>
       <section className="flex items-center gap-4">
