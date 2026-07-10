@@ -13,17 +13,11 @@ const router = createBrowserRouter([
       {
         index: true,
         path: "/",
-        loader: async () => fetch("/books.json"),
         Component: Home,
-        HydrateFallback: () => (
-          <div className="text-center">
-            <span className="loading loading-dots loading-xl"></span>
-          </div>
-        ),
       },
       {
         path: "/details/:id",
-        Component: Details
+        Component: Details,
       },
     ],
   },
