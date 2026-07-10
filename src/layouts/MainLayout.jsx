@@ -1,18 +1,20 @@
-import { Outlet } from "react-router"
-import NavBar from "../components/Header/NavBar"
-import Home from "../pages/Home/Home"
-import Footer from "../components/Footer/Footer"
+import { Outlet } from "react-router";
+import NavBar from "../components/Header/NavBar";
+import Home from "../pages/Home/Home";
+import Footer from "../components/Footer/Footer";
 
 function MainLayout() {
   return (
-      <>
-          <NavBar />
-          <Outlet>
-              <Home />
-          </Outlet>
-          <Footer />
-      </>
-  )
+    <>
+      <div className="w-5/6 mx-auto">
+        <NavBar />
+        <Outlet>
+          <Home />
+        </Outlet>
+      </div>
+      <Footer />
+    </>
+  );
 }
 
-export default MainLayout
+export default MainLayout;

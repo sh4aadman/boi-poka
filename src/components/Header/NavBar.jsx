@@ -4,7 +4,7 @@ import Title from "../UI/Title/Title";
 
 function NavBar() {
   return (
-    <nav className="w-5/6 mx-auto mt-5 mb-10 flex items-center justify-between">
+    <nav className="mt-5 mb-10 flex items-center justify-between">
       <Title text={"Book Vibe"} />
       <section>
         <ul className="flex items-center gap-4">
