@@ -6,10 +6,10 @@ function Card({ data }) {
   const { bookId, image, bookName, author, tags, category, rating } = data;
   return (
     <Link to={`/details/${bookId}`}>
-      <section className="p-6 border border-[#13131326] rounded-2xl">
+      <section className="p-6 border border-[#13131326] rounded-2xl shadow-lg">
         <figure className="mb-6 bg-[#F3F3F3] rounded-2xl p-8">
           <img
-            className="w-32 h-44 mx-auto object-cover"
+            className="w-32 h-44 mx-auto object-cover shadow-xl"
             src={image}
             alt={`cover-${bookName}`}
           />
