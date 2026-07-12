@@ -4,6 +4,7 @@ import Focus from "../../components/UI/Focus/Focus";
 import Tag from "../../components/UI/Tag/Tag";
 import Details from "../../components/UI/Focus/Details";
 import PrimaryButton from "../../components/UI/Button/PrimaryButton";
+import { setReadlist } from "../../utils/addToReadlist";
 
 function BookDetails() {
   const { id } = useParams();
@@ -24,6 +25,10 @@ function BookDetails() {
     rating,
     image,
   } = book;
+
+  const handleRead = (id) => {
+    setReadlist(id);
+  }
 
   return (
     <section className="flex gap-12">
@@ -81,7 +86,7 @@ function BookDetails() {
           </section>
         </section>
         <section className="flex items-center gap-4">
-          <PrimaryButton text={"Read"} colorHex={"#131313"} bgHex={"#FFFFFF"} borderColor={"#1313134D"} />
+          <PrimaryButton onClick={() => handleRead(bookId)} text={"Read"} colorHex={"#131313"} bgHex={"#FFFFFF"} borderColor={"#1313134D"} />
           <PrimaryButton text={"Wishlist"} colorHex={"#FFFFFF"} bgHex={"#50B1C9"} />
         </section>
       </section>

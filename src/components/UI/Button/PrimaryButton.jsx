@@ -1,6 +1,6 @@
-function PrimaryButton({ text, colorHex, bgHex, borderColor }) {
+function PrimaryButton({ text, colorHex, bgHex, borderColor, onClick }) {
   return (
-    <button
+    <button onClick={onClick}
       style={{ color: colorHex, backgroundColor: bgHex, borderColor: borderColor }}
       className="px-4 py-3 border font-bold rounded-lg"
     >

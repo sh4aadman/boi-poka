@@ -16,8 +16,23 @@
 }
 
 a.active {
-  color: #23BE0A;
-  border: 1px solid #23BE0A;
+  color: #23be0a;
+  border: 1px solid #23be0a;
   border-radius: 8px;
   font-weight: 600;
+}
+
+.react-tabs__tab {
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 18px;
+  color: #13131380;
+}
+
+.react-tabs__tab--selected {
+  color: #131313cc;
+}
+
+.react-tabs__tab-panel {
+  margin-top: 32px
 }
