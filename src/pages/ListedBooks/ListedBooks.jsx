@@ -1,13 +1,22 @@
 import { useLoaderData } from "react-router";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { getReadlist } from "../../utils/addToReadlist";
+import { getReadlistFromStorage } from "../../utils/addToReadlist";
 import Tile from "../../components/Tile/Tile";
+import { getWishlistFromStorage } from "../../utils/addToWishlist";
 
 function ListedBooks() {
   const data = useLoaderData();
-  const list = getReadlist();
-  const readlist = data.filter((each) => list.includes(each.bookId));
+
+  const readlistFromStorage = getReadlistFromStorage();
+  const readlist = data.filter((each) =>
+    readlistFromStorage.includes(each.bookId),
+  );
+
+  const wishlistFromStorage = getWishlistFromStorage();
+  const wishlist = data.filter((each) =>
+    wishlistFromStorage.includes(each.bookId),
+  );
 
   return (
     <>
@@ -44,12 +53,16 @@ function ListedBooks() {
           <Tab>Wishlist Books</Tab>
         </TabList>
 
-        {readlist.map((each) => (
-          <TabPanel key={each.bookId}>
-            <Tile book={each} />
-          </TabPanel>
-        ))}
-              
+        <TabPanel>
+          {readlist.map((each) => (
+            <Tile key={each.bookId} book={each} />
+          ))}
+        </TabPanel>
+        <TabPanel>
+          {wishlist.map((each) => (
+            <Tile key={each.bookId} book={each} />
+          ))}
+        </TabPanel>
       </Tabs>
     </>
   );

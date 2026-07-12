@@ -1,4 +1,4 @@
-const getReadlist = () => {
+const getReadlistFromStorage = () => {
   const listStr = localStorage.getItem("readlist");
   if (listStr) {
     const list = JSON.parse(listStr);
@@ -7,15 +7,15 @@ const getReadlist = () => {
   return [];
 };
 
-const setReadlist = (id) => {
-  const readlist = getReadlist();
+const setReadlistToStorage = (id) => {
+  const readlist = getReadlistFromStorage();
   if (readlist.includes(id)) {
     alert("Item already added!");
   } else {
     readlist.push(id);
-    const list = JSON.stringify(readlist);
-    return localStorage.setItem("readlist", list);
+    const data = JSON.stringify(readlist);
+    return localStorage.setItem("readlist", data);
   }
 };
 
-export { getReadlist, setReadlist };
+export { getReadlistFromStorage, setReadlistToStorage };

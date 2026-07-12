@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/listed-books",
-        loader: () => fetch("books.json"),
+        loader: () => fetch("/books.json"),
         Component: ListedBooks,
         hydrateFallbackElement: <Loading />,
       },

@@ -8,9 +8,11 @@ function MainLayout() {
     <>
       <div className="w-5/6 mx-auto mb-32">
         <NavBar />
-        <Outlet>
-          <Home />
-        </Outlet>
+        <div className="min-h-screen">
+          <Outlet>
+            <Home />
+          </Outlet>
+        </div>
       </div>
       <Footer />
     </>
