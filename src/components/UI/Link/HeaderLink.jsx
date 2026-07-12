@@ -1,5 +1,5 @@
 function HeaderLink({ text }) {
-  return <li className="px-4 py-3.5 text-lg text-[#131313CC]">{text}</li>;
+  return <li className="px-4 py-2.5 text-lg">{text}</li>;
 }
 
 export default HeaderLink;
