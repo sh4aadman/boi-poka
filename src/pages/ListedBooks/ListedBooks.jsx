@@ -48,6 +48,7 @@ function ListedBooks() {
 
   return (
     <>
+      <title>Book Vibe - Listed Books</title>
       <h2 className="py-9 mb-8 font-primary font-bold text-3xl text-center rounded-3xl bg-[#F3F3F3]">
         Books
       </h2>
@@ -82,11 +83,13 @@ function ListedBooks() {
         </TabList>
 
         <TabPanel>
+          <title>Book Vibe - Read List</title>
           {sortedReadlist.map((each) => (
             <Tile key={each.bookId} book={each} />
           ))}
         </TabPanel>
         <TabPanel>
+          <title>Book Vibe - Wish List</title>
           {sortedWishlist.map((each) => (
             <Tile key={each.bookId} book={each} />
           ))}

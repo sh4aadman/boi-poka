@@ -5,6 +5,7 @@ function Home() {
 
   return (
     <>
+      <title>Book Vibe - Home</title>
       <Banner />
       <Books />
     </>
