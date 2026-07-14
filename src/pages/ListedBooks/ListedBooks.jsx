@@ -4,19 +4,46 @@ import "react-tabs/style/react-tabs.css";
 import { getReadlistFromStorage } from "../../utils/addToReadlist";
 import Tile from "../../components/Tile/Tile";
 import { getWishlistFromStorage } from "../../utils/addToWishlist";
+import { useState } from "react";
 
 function ListedBooks() {
-  const data = useLoaderData();
+  const [type, setType] = useState("");
 
+  const data = useLoaderData();
   const readlistFromStorage = getReadlistFromStorage();
-  const readlist = data.filter((each) =>
+  const readlistData = data.filter((each) =>
     readlistFromStorage.includes(each.bookId),
   );
 
   const wishlistFromStorage = getWishlistFromStorage();
-  const wishlist = data.filter((each) =>
+  const wishlistData = data.filter((each) =>
     wishlistFromStorage.includes(each.bookId),
   );
+
+  const sortedBooks = (books) => {
+    const sorted = books;
+
+    switch (type) {
+      case "rating":
+        sorted.sort((a, b) => a.rating - b.rating);
+        break;
+      case "pages":
+        sorted.sort((a, b) => a.pages - b.pages);
+        break;
+      case "year":
+        sorted.sort((a, b) => a.year - b.year);
+        break;
+    }
+
+    return sorted;
+  };
+
+  const sortedReadlist = sortedBooks(readlistData);
+  const sortedWishlist = sortedBooks(wishlistData);
+
+  const handleSort = (type) => {
+    setType(type);
+  };
 
   return (
     <>
@@ -24,7 +51,7 @@ function ListedBooks() {
         Books
       </h2>
       {/* DaisyUI - Dropdown Button */}
-      <div className="dropdown dropdown-start mb-14 flex justify-center">
+      <div className="dropdown mb-14 flex justify-center">
         <div
           tabIndex={0}
           role="button"
@@ -34,15 +61,15 @@ function ListedBooks() {
         </div>
         <ul
           tabIndex="-1"
-          className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+          className="dropdown-content menu mt-12 rounded-box z-1 w-40 p-2 shadow-sm font-primary leading-7 text-[#131313CC] bg-[#F3F3F3]"
         >
-          <li>
+          <li onClick={() => handleSort("rating")}>
             <a>Rating</a>
           </li>
-          <li>
+          <li onClick={() => handleSort("pages")}>
             <a>Number of pages</a>
           </li>
-          <li>
+          <li onClick={() => handleSort("year")}>
             <a>Publisher year</a>
           </li>
         </ul>
@@ -54,12 +81,12 @@ function ListedBooks() {
         </TabList>
 
         <TabPanel>
-          {readlist.map((each) => (
+          {sortedReadlist.map((each) => (
             <Tile key={each.bookId} book={each} />
           ))}
         </TabPanel>
         <TabPanel>
-          {wishlist.map((each) => (
+          {sortedWishlist.map((each) => (
             <Tile key={each.bookId} book={each} />
           ))}
         </TabPanel>
