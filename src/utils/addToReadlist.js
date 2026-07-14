@@ -10,11 +10,12 @@ const getReadlistFromStorage = () => {
 const setReadlistToStorage = (id) => {
   const readlist = getReadlistFromStorage();
   if (readlist.includes(id)) {
-    alert("Item already added!");
+    return false;
   } else {
     readlist.push(id);
     const data = JSON.stringify(readlist);
-    return localStorage.setItem("readlist", data);
+    localStorage.setItem("readlist", data);
+    return true;
   }
 };
 

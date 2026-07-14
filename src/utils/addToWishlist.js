@@ -10,11 +10,12 @@ const getWishlistFromStorage = () => {
 const setWishlistToStorage = (id) => {
   const wishlist = getWishlistFromStorage();
   if (wishlist.includes(id)) {
-    alert("Item already added!");
+    return false;
   } else {
     wishlist.push(id);
     const data = JSON.stringify(wishlist);
-    return localStorage.setItem("wishlist", data);
+    localStorage.setItem("wishlist", data);
+    return true;
   }
 };
 

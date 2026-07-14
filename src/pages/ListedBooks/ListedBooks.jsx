@@ -43,6 +43,7 @@ function ListedBooks() {
 
   const handleSort = (type) => {
     setType(type);
+    document.activeElement.blur();
   };
 
   return (
@@ -96,3 +97,46 @@ function ListedBooks() {
 }
 
 export default ListedBooks;
+
+// If user want to modify the array on the go, then the component structure should look like the following:
+
+// const data = useLoaderData();
+
+// const [readlist, setReadlist] = useState([]);
+// const [wishlist, setWishlist] = useState([]);
+
+// useEffect(() => {
+//   const readIds = getReadlistFromStorage();
+//   const wishIds = getWishlistFromStorage();
+
+//   setReadlist(
+//     data.filter(book => readIds.includes(book.bookId))
+//   );
+
+//   setWishlist(
+//     data.filter(book => wishIds.includes(book.bookId))
+//   );
+// }, [data]);
+
+// const handleSort = (type) => {
+//   const sortFn = {
+//     rating: (a, b) => b.rating - a.rating,
+//     pages: (a, b) => b.pages - a.pages,
+//     year: (a, b) => b.year - a.year,
+//   }[type];
+
+//   setReadlist(prev => [...prev].sort(sortFn));
+//   setWishlist(prev => [...prev].sort(sortFn));
+// };
+
+// <TabPanel>
+//   {readlist.map(book => (
+//     <Tile key={book.bookId} book={book} />
+//   ))}
+// </TabPanel>
+
+// <TabPanel>
+//   {wishlist.map(book => (
+//     <Tile key={book.bookId} book={book} />
+//   ))}
+// </TabPanel>

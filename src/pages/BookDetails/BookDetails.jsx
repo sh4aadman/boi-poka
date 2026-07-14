@@ -6,6 +6,7 @@ import Details from "../../components/UI/Focus/Details";
 import PrimaryButton from "../../components/UI/Button/PrimaryButton";
 import { setReadlistToStorage } from "../../utils/addToReadlist";
 import { setWishlistToStorage } from "../../utils/addToWishlist";
+import toast, { Toaster } from "react-hot-toast";
 
 function BookDetails() {
   const { id } = useParams();
@@ -28,12 +29,22 @@ function BookDetails() {
   } = book;
 
   const handleRead = (id) => {
-    setReadlistToStorage(id);
-  }
+    const added = setReadlistToStorage(id);
+    if (added) {
+      toast(`${bookName} - by ${author} is added to read-list!`);
+    } else {
+      toast("Book already added to read-list!");
+    }
+  };
 
   const handleWishlist = (id) => {
-    setWishlistToStorage(id);
-  }
+    const added = setWishlistToStorage(id);
+    if (added) {
+      toast(`${bookName} - by ${author} is added to wish-list!`);
+    } else {
+      toast("Book already added to wish-list!");
+    }
+  };
 
   return (
     <section className="flex gap-12">
@@ -91,10 +102,30 @@ function BookDetails() {
           </section>
         </section>
         <section className="flex items-center gap-4">
-          <PrimaryButton onClick={() => handleRead(bookId)} text={"Read"} colorHex={"#131313"} bgHex={"#FFFFFF"} borderColor={"#1313134D"} />
-          <PrimaryButton onClick={() => handleWishlist(bookId)} text={"Wishlist"} colorHex={"#FFFFFF"} bgHex={"#50B1C9"} />
+          <PrimaryButton
+            onClick={() => handleRead(bookId)}
+            text={"Read"}
+            colorHex={"#131313"}
+            bgHex={"#FFFFFF"}
+            borderColor={"#1313134D"}
+          />
+          <PrimaryButton
+            onClick={() => handleWishlist(bookId)}
+            text={"Wishlist"}
+            colorHex={"#FFFFFF"}
+            bgHex={"#50B1C9"}
+          />
         </section>
       </section>
+      <Toaster
+        toastOptions={{
+          className: "font-primary",
+          style: {
+            color: "#FFFFFF",
+            backgroundColor: "#59C6D2",
+          },
+        }}
+      />
     </section>
   );
 }
