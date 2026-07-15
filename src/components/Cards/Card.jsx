@@ -9,18 +9,18 @@ function Card({ data }) {
       <section className="p-6 border border-[#13131326] rounded-2xl shadow-lg">
         <figure className="mb-6 bg-[#F3F3F3] rounded-2xl p-8">
           <img
-            className="w-32 h-44 mx-auto object-cover shadow-xl"
+            className="w-32 h-44 mx-auto object-cover rounded-2xl shadow-xl"
             src={image}
             alt={`cover-${bookName}`}
           />
         </figure>
-        <section className="mb-4 flex items-center gap-3">
+        <section className="mb-4 flex flex-col lg:flex-row items-start lg:items-center gap-3">
           {tags.map((each, idx) => (
             <Tag key={idx} text={each} colorHex={"#23BE0A"} bgHex={"#F3F3F3"} />
           ))}
         </section>
         <Heading3 text={bookName} />
-        <p className="mt-4 font-primary font-medium text-[#131313CC]">
+        <p className="mt-4 font-primary font-medium text-sm lg:text-base text-[#131313CC]">
           By : {author}
         </p>
         <hr className="mt-5 border border-dashed text-[#13131326]" />

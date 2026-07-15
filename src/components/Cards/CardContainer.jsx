@@ -8,7 +8,7 @@ function CardContainer() {
   const data = use(dataPromise);
 
   return (
-    <section className="mt-10 grid grid-cols-3 gap-6">
+    <section className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
       {data.map((each) => (
         <Card key={each.bookId} data={each} />
       ))}

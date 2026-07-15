@@ -47,9 +47,9 @@ function BookDetails() {
   };
 
   return (
-    <section className="flex gap-12">
+    <section className="flex gap-4 lg:gap-12">
       <title>{`${bookName} - by ${author}`}</title>
-      <figure className="p-24 rounded-2xl bg-[#F3F3F3]">
+      <figure className="p-4 lg:p-24 h-fit rounded-2xl bg-[#F3F3F3]">
         <img
           className="w-md h-125 rounded-2xl object-cover shadow-xl"
           src={image}

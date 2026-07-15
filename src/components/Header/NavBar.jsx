@@ -8,7 +8,7 @@ function NavBar() {
     <nav className="mt-5 mb-10 flex items-center justify-between">
       <Title text={"Book Vibe"} />
       <section>
-        <ul className="flex items-center gap-4">
+        <ul className="flex items-center gap-1 lg:gap-4">
           <NavLink to={"/"}>
             <HeaderLink text={"Home"} />
           </NavLink>
@@ -20,7 +20,7 @@ function NavBar() {
           </NavLink>
         </ul>
       </section>
-      <section className="flex items-center gap-4">
+      <section className="flex items-center gap-1 lg:gap-4">
         <PrimaryButton
           text={"Sign In"}
           colorHex={"#FFFFFF"}

@@ -4,8 +4,8 @@ import bookCover from "../../assets/book.webp";
 
 function Banner() {
   return (
-    <section className="mb-20 px-36 py-20 rounded-3xl flex items-center justify-between bg-[#F3F3F3]">
-      <section className="w-2/5 space-y-12">
+    <section className="mb-20 px-12 lg:px-36 py-12 lg:py-20 rounded-3xl flex items-center justify-between bg-[#F3F3F3]">
+      <section className="w-2/5 md:space-y-6 lg:space-y-12">
         <Heading1 text={"Books to freshen up your bookshelf"} />
         <PrimaryButton
           text={"View The List"}
