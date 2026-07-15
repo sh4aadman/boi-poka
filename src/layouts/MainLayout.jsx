@@ -6,7 +6,7 @@ import Footer from "../components/Footer/Footer";
 function MainLayout() {
   return (
     <>
-      <div className="w-5/6 mx-auto mb-32">
+      <div className="w-[95%] lg:w-5/6 mx-auto mb-32">
         <NavBar />
         <div className="min-h-screen">
           <Outlet>

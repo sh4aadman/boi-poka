@@ -24,7 +24,7 @@ function Card({ data }) {
           By : {author}
         </p>
         <hr className="mt-5 border border-dashed text-[#13131326]" />
-        <section className="mt-5 font-primary font-medium text-[#131313CC] flex items-center justify-between">
+        <section className="mt-5 font-primary font-medium text-sm lg:text-base text-[#131313CC] flex items-center justify-between">
           <p className="">{category}</p>
           <section className="flex items-center gap-2">
             <p>{rating}</p>

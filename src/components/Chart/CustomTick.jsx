@@ -1,6 +1,6 @@
 function CustomTick({ x, y, payload }) {
   return (
-      <text x={x} y={y + 20} textAnchor="middle" className="font-primary">
+      <text x={x} y={y + 20} textAnchor="middle" className="font-primary md:text-xs">
       {payload.value}
     </text>
   );

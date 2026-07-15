@@ -51,7 +51,7 @@ function BookDetails() {
       <title>{`${bookName} - by ${author}`}</title>
       <figure className="p-4 lg:p-24 h-fit rounded-2xl bg-[#F3F3F3]">
         <img
-          className="w-md h-125 rounded-2xl object-cover shadow-xl"
+          className="lg:w-md h-125 rounded-2xl object-cover shadow-xl"
           src={image}
           alt={`cover-${bookName}`}
         />
@@ -62,7 +62,7 @@ function BookDetails() {
           By : {author}
         </p>
         <hr className="w-full text-[#13131326]" />
-        <p className="my-4 font-primary font-medium text-xl text-[#131313CC]">
+        <p className="my-4 font-primary font-medium lg:text-xl text-[#131313CC]">
           {category}
         </p>
         <hr className="w-full mb-6 text-[#13131326]" />
@@ -89,13 +89,13 @@ function BookDetails() {
         </section>
         <hr className="w-full my-6 text-[#13131326]" />
         <section className="mb-8 flex items-center gap-14">
-          <section className="space-y-3 font-primary text-[#131313B3] leading-7">
+          <section className="space-y-2 lg:space-y-3 font-primary text-sm lg:text-base text-[#131313B3] leading-5 lg:leading-7">
             <p>Number of Pages :</p>
             <p>Publisher :</p>
             <p>Year of Publishing :</p>
             <p>Rating :</p>
           </section>
-          <section className="space-y-3">
+          <section className="space-y-1 lg:space-y-3">
             <Details text={pages} />
             <Details text={publisher} />
             <Details text={year} />
